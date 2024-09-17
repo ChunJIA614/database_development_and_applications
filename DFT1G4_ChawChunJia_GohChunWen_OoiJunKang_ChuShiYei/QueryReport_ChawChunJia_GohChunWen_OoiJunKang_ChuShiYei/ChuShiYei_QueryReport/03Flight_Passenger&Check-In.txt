@@ -1,0 +1,22 @@
+SET PAGESIZE 30
+SET LINESIZE 120
+TTITLE CENTER 'Flight, Passenger, and Check-in Status' SKIP 1 -
+
+COLUMN Flight_ID FORMAT A10 HEADING 'Flight ID'
+COLUMN Arrival_DateTime FORMAT DATE HEADING 'Arrival Date'
+COLUMN Status FORMAT A20 HEADING 'Flight Status'
+COLUMN Passenger_ID FORMAT A10 HEADING 'Passenger ID'
+COLUMN Passenger_Name FORMAT A20 HEADING 'Passenger Name'
+COLUMN Checkin_Date FORMAT A15 HEADING 'Check-in Date'
+COLUMN Checkin_Status FORMAT A20 HEADING 'Check-in Status'
+
+SELECT f.flight_id AS Flight_ID,
+       f.arrival_datetime AS Arrival_DateTime,
+       f.status AS Status,
+       p.passenger_id AS Passenger_ID,
+       p.passenger_name AS Passenger_Name,
+       c.checkin_date AS Checkin_Date,
+       c.checkin_status AS Checkin_Status
+FROM Flight f
+JOIN Passenger p ON f.passenger_id = p.passenger_id
+LEFT JOIN Check_in c ON f.passenger_id = c.passenger_id;

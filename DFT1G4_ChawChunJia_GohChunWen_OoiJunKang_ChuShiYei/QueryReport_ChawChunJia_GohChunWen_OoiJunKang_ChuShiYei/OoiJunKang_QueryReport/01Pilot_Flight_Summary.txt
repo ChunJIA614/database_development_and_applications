@@ -1,0 +1,18 @@
+SET linesize 80
+SET pagesize 50
+
+COLUMN pilot_id FORMAT A10 HEADING "Pilot ID"
+COLUMN pilot_name FORMAT A30 HEADING "Pilot Name"
+COLUMN flight_count FORMAT 9999 HEADING "Flight Count"
+COLUMN total_distance FORMAT 99999 HEADING "Total Distance"
+
+TTITLE CENTER 'Pilot Flight Summary' SKIP 1
+
+SELECT FP.pilot_id, P.pilot_name, COUNT(FP.flight_id) AS flight_count, SUM(R.distance) AS total_distance
+FROM Pilot P
+JOIN Flight_Pilot FP ON P.pilot_id = FP.pilot_id
+JOIN Flight F ON F.flight_id = FP.flight_id
+JOIN Aircraft A ON A.aircraft_id = F.aircraft_id
+JOIN Route R ON R.aircraft_id = A.aircraft_id 
+GROUP BY FP.pilot_id, P.pilot_name
+ORDER BY pilot_id;

@@ -1,0 +1,5 @@
+CREATE TABLE Gate (
+    gate_id VARCHAR(10) NOT NULL,
+    gate_status VARCHAR(50),
+    PRIMARY KEY (gate_id)
+);

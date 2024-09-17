@@ -1,0 +1,8 @@
+CREATE TABLE Pilot (
+    pilot_id VARCHAR(10) NOT NULL,
+    pilot_name VARCHAR(50),
+    license_number VARCHAR(20),
+    gender VARCHAR(10),
+    nationality VARCHAR(30),
+    PRIMARY KEY (pilot_id)
+);

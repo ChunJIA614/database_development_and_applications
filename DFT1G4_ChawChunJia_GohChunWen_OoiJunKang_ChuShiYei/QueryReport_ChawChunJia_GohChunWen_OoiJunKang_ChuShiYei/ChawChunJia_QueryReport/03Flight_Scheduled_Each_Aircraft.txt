@@ -1,0 +1,16 @@
+SET linesize 120
+SET pagesize 30
+
+COLUMN aircraft_id FORMAT A10 HEADING "Aircraft ID"
+COLUMN aircraft_name FORMAT A30 HEADING "Aircraft Name"
+COLUMN total_flights FORMAT 9999 HEADING "Total Flights Scheduled"
+TTITLE LEFT 'Total Number of Flights Scheduled for Each Aircraft' RIGHT 'Page No: ' FORMAT 999 SQL.PNO SKIP 2
+
+SELECT A.aircraft_id, A.aircraft_name, COUNT(F.flight_id) AS total_flights
+FROM Aircraft A
+JOIN Flight F ON A.aircraft_id = F.aircraft_id
+GROUP BY A.aircraft_id, A.aircraft_name;
+
+CLEAR COLUMNS
+CLEAR BREAKS
+TTITLE OFF

@@ -1,0 +1,10 @@
+INSERT INTO Pilot VALUES ('PLT1001', 'John Smith', 'PL001', 'Male', 'USA');
+INSERT INTO Pilot VALUES ('PLT1002', 'Emily Johnson', 'PL002', 'Female', 'Canada');
+INSERT INTO Pilot VALUES ('PLT1003', 'Mohammed Khan', 'PL003', 'Male', 'India');
+INSERT INTO Pilot VALUES ('PLT1004', 'Sophie Dupont', 'PL004', 'Female', 'France');
+INSERT INTO Pilot VALUES ('PLT1005', 'Juan Rodriguez', 'PL005', 'Male', 'Mexico');
+INSERT INTO Pilot VALUES ('PLT1006', 'Anna Novak', 'PL006', 'Female', 'Russia');
+INSERT INTO Pilot VALUES ('PLT1007', 'Hiroshi Tanaka', 'PL007', 'Male', 'Japan');
+INSERT INTO Pilot VALUES ('PLT1008', 'Lily Chen', 'PL008', 'Female', 'China');
+INSERT INTO Pilot VALUES ('PLT1009', 'Michael Brown', 'PL009', 'Male', 'Australia');
+INSERT INTO Pilot VALUES ('PLT1010', 'Maria Garcia', 'PL010', 'Female', 'Spain');

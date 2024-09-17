@@ -1,0 +1,20 @@
+SET LINESIZE 120
+SET PAGESIZE 30
+
+COLUMN Passenger_Name FORMAT A30 HEADING "Passenger Name"
+COLUMN Luggage_ID FORMAT A10 HEADING "Luggage ID"
+COLUMN Luggage_Allowance FORMAT 9999 HEADING "Luggage Allowance (kg)"
+COLUMN Flight_ID FORMAT A10 HEADING "Flight ID"
+
+TTITLE LEFT 'Passenger Luggage Information' -
+       RIGHT 'Page No: ' FORMAT 999 SQL.PNO SKIP 2
+
+SELECT P.Passenger_Name, L.Luggage_ID, L.Luggage_Allowance, F.Flight_ID
+FROM Passenger P
+JOIN Ticket T ON P.Passenger_ID = T.Passenger_ID
+JOIN Luggage L ON T.Ticket_ID = L.Ticket_ID
+JOIN Flight F ON T.Passenger_ID = F.Passenger_ID;
+
+CLEAR COLUMNS
+CLEAR BREAKS
+TTITLE OFF

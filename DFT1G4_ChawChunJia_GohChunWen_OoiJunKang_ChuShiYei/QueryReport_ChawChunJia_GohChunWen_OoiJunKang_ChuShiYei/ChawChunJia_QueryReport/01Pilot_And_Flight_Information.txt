@@ -1,0 +1,24 @@
+ACCEPT pilot_name CHAR FORMAT 'A20' PROMPT 'Enter Pilot Name: '
+
+CLEAR COLUMNS
+
+SET PAGESIZE 50
+SET LINESIZE 80
+SET UNDERLINE =
+SET FEEDBACK OFF
+
+COLUMN pilot_name FORMAT A30 HEADING 'Pilot Name'
+COLUMN flight_id FORMAT A10 HEADING 'Flight ID'
+COLUMN arrival_datetime FORMAT DATE HEADING 'Arrival Date'
+COLUMN model FORMAT A15 HEADING 'Aircraft Model'
+
+TTITLE CENTER 'Pilot and Flight Information' SKIP 2 -
+LEFT 'Pilot Name: ' pilot_name
+
+SELECT P.pilot_name, FP.flight_id, F.arrival_datetime, A.model
+FROM Pilot P
+JOIN Flight_Pilot FP ON P.pilot_id = FP.pilot_id
+JOIN Flight F ON FP.flight_id = F.flight_id
+JOIN Aircraft A ON F.aircraft_id = A.aircraft_id
+WHERE P.pilot_name = '&pilot_name';
+

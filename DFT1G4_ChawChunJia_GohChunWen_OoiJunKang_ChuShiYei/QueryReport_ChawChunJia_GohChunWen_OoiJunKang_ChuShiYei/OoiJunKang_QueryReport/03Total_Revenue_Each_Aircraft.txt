@@ -1,0 +1,18 @@
+SET LINESIZE 100
+SET PAGESIZE 30
+TTITLE LEFT 'Total Revenue and Distance Flown by Each Aircraft' SKIP 2-
+TTITLE LEFT 'Page No: ' FORMAT 999 SQL.PNO SKIP 2
+
+COLUMN aircraft_id FORMAT A11 HEADING 'Aircraft ID'
+COLUMN total_revenue FORMAT $999999.99 HEADING 'Total Revenue'
+COLUMN distance FORMAT 99999 HEADING 'Total Distance'
+
+SELECT F.aircraft_id,
+       SUM(T.price) AS total_revenue,
+       TO_CHAR(SUM(R.distance), '99,999') AS distance
+FROM Flight F
+JOIN Ticket T ON F.passenger_id = T.passenger_id
+JOIN Aircraft A ON A.aircraft_id = F.aircraft_id
+JOIN Route R ON A.aircraft_id = R.aircraft_id
+GROUP BY F.aircraft_id
+ORDER BY total_revenue;

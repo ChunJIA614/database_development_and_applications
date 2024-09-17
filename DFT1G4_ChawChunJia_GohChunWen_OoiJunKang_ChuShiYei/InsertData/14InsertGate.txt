@@ -1,0 +1,10 @@
+INSERT INTO Gate VALUES ('G1001', 'Open');
+INSERT INTO Gate VALUES ('G1002', 'Closed');
+INSERT INTO Gate VALUES ('G1003', 'Boarding');
+INSERT INTO Gate VALUES ('G1004', 'Departed');
+INSERT INTO Gate VALUES ('G1005', 'Arrived');
+INSERT INTO Gate VALUES ('G1006', 'Delayed');
+INSERT INTO Gate VALUES ('G1007', 'Maintenance');
+INSERT INTO Gate VALUES ('G1008', 'Ready');
+INSERT INTO Gate VALUES ('G1009', 'Final Call');
+INSERT INTO Gate VALUES ('G1010', 'Checking');

@@ -1,0 +1,21 @@
+SET linesize 120
+SET pagesize 30
+
+COLUMN model FORMAT A30 HEADING "Aircraft Model"
+COLUMN total_distance FORMAT 999999 HEADING "Total Distance Covered (km)"
+COLUMN total_flights FORMAT 9999 HEADING "Total Flights"
+
+TTITLE LEFT 'Total Distance Covered by Each Aircraft Model' RIGHT 'Page No: ' FORMAT 999 SQL.PNO SKIP 2
+
+SELECT A.model, 
+       SUM(R.distance) AS total_distance,
+       COUNT(F.flight_id) AS total_flights
+FROM Aircraft A
+JOIN Route R ON A.aircraft_id = R.aircraft_id
+JOIN Flight F ON A.aircraft_id = F.aircraft_id
+GROUP BY A.model
+ORDER BY A.model;
+
+CLEAR COLUMNS
+CLEAR BREAKS
+TTITLE OFF

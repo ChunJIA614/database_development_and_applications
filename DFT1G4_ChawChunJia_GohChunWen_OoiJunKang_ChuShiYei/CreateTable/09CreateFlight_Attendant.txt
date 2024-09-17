@@ -1,0 +1,5 @@
+CREATE TABLE Flight_Attendant (
+    flight_id VARCHAR(10),
+    attendant_id VARCHAR(10),
+    PRIMARY KEY (flight_id, attendant_id)
+);

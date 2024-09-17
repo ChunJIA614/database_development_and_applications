@@ -1,0 +1,9 @@
+CREATE TABLE Ticket (
+    ticket_id VARCHAR(10) NOT NULL,
+    price NUMBER,
+    seat_number VARCHAR(10),
+    status VARCHAR(50),
+    passenger_id VARCHAR(10),
+    PRIMARY KEY (ticket_id),
+    FOREIGN KEY (passenger_id) REFERENCES Passenger(passenger_id)
+);

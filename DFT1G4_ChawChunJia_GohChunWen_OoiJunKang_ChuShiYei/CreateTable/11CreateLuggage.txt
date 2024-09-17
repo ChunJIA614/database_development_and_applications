@@ -1,0 +1,7 @@
+CREATE TABLE Luggage(
+luggage_id VARCHAR(10),
+ticket_id VARCHAR(10),
+luggage_allowance NUMBER,
+PRIMARY KEY (luggage_id), 
+FOREIGN KEY (ticket_id) REFERENCES Ticket (ticket_id)
+);

@@ -1,0 +1,19 @@
+TTITLE Left "Average Ticket Prices by Destination" SKIP 2-
+TTITLE LEFT 'Page No: ' FORMAT 999 SQL.PNO SKIP 2
+SET linesize 100 
+SET pagesize 50
+
+COLUMN destination FORMAT A30 HEADING "Destination"
+COLUMN avg_ticket_price FORMAT $9999.99 HEADING "Average Ticket Price"
+COLUMN distance FORMAT 9999 HEADING "Distance"
+
+SELECT R.destination, AVG(T.price) AS avg_ticket_price, R.distance 
+FROM Route R
+JOIN Aircraft A ON A.aircraft_id = R.aircraft_id
+JOIN Flight F ON F.aircraft_id = A.aircraft_id
+JOIN Passenger P ON P.passenger_id = F.passenger_id
+JOIN Ticket T ON P.passenger_id = T.passenger_id
+GROUP BY R.destination, R.distance
+ORDER BY avg_ticket_price DESC;
+
+

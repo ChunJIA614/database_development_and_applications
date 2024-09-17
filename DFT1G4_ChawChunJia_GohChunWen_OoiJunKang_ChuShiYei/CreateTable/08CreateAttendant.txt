@@ -1,0 +1,7 @@
+CREATE TABLE Attendant (
+    attendant_id VARCHAR(10) NOT NULL,
+    attendant_name VARCHAR(50),
+    gender VARCHAR(10),
+    nationality VARCHAR(30),
+    PRIMARY KEY (attendant_id)
+);

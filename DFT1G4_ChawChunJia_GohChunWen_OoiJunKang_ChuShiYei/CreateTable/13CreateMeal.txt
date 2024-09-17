@@ -1,0 +1,9 @@
+CREATE TABLE Meal (
+    meal_id VARCHAR(10) NOT NULL,
+    passenger_id VARCHAR(10) NOT NULL,
+    meal_name VARCHAR(50),
+    description VARCHAR(100),
+    meal_type VARCHAR(20),
+    PRIMARY KEY (meal_id),
+    FOREIGN KEY (passenger_id) REFERENCES passenger (passenger_id)
+);

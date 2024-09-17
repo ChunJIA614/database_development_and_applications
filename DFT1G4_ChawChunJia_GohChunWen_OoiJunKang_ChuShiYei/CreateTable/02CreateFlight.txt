@@ -1,0 +1,12 @@
+CREATE TABLE Flight (
+    flight_id VARCHAR(10) NOT NULL,
+    arrival_datetime DATE,
+    status VARCHAR(50),
+    passenger_id VARCHAR(10),
+    gate_id VARCHAR(10),
+    aircraft_id VARCHAR(10),
+    PRIMARY KEY (flight_id),
+    FOREIGN KEY (passenger_id) REFERENCES Passenger(passenger_id),
+    FOREIGN KEY (gate_id) REFERENCES Gate(gate_id),
+    FOREIGN KEY (aircraft_id) REFERENCES Aircraft(aircraft_id)
+);

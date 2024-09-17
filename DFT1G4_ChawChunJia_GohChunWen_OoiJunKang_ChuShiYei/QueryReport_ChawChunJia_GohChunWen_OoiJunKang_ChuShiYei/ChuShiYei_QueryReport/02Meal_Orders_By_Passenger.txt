@@ -1,0 +1,22 @@
+ACCEPT passenger_id CHAR FORMAT 'A10' PROMPT 'Enter Passenger ID: '
+SET PAGESIZE 30
+SET LINESIZE 180
+
+TTITLE LEFT 'Meal Orders by Passenger' SKIP 1 -
+TTITLE LEFT 'Page No: ' FORMAT 999 SQL.PNO SKIP 2
+
+COLUMN Ticket_ID FORMAT A10 HEADING 'Ticket ID'
+COLUMN Meal_ID FORMAT A10 HEADING 'Meal ID'
+COLUMN Meal_Name FORMAT A40 HEADING 'Meal Name'
+COLUMN Description FORMAT A80 HEADING 'Description'
+COLUMN Meal_Type FORMAT A20 HEADING 'Meal Type'
+
+SELECT t.ticket_id AS Ticket_ID,
+       m.meal_id AS Meal_ID,
+       m.meal_name AS Meal_Name,
+       m.description AS Description,
+       m.meal_type AS Meal_Type
+FROM Ticket t
+JOIN Passenger P ON T.passenger_id = P.passenger_id
+JOIN Meal M ON M.passenger_id = P.passenger_id
+WHERE M.passenger_id = '&passenger_id';

@@ -1,0 +1,10 @@
+INSERT INTO Attendant VALUES ('A1001', 'Emily Wilson', 'Female', 'USA');
+INSERT INTO Attendant VALUES ('A1002', 'Michael Chen', 'Male', 'China');
+INSERT INTO Attendant VALUES ('A1003', 'Sophia Lee', 'Female', 'South Korea');
+INSERT INTO Attendant VALUES ('A1004', 'Maxim Ivanov', 'Male', 'Russia');
+INSERT INTO Attendant VALUES ('A1005', 'Emma Johnson', 'Female', 'Canada');
+INSERT INTO Attendant VALUES ('A1006', 'Daniel Müller', 'Male', 'Germany');
+INSERT INTO Attendant VALUES ('A1007', 'Lily Tan', 'Female', 'Singapore');
+INSERT INTO Attendant VALUES ('A1008', 'David Kim', 'Male', 'South Korea');
+INSERT INTO Attendant VALUES ('A1009', 'Isabella Rossi', 'Female', 'Italy');
+INSERT INTO Attendant VALUES ('A1010', 'Juan Martinez', 'Male', 'Spain');

@@ -1,0 +1,22 @@
+ACCEPT cancellation_date DATE FORMAT 'YYYY-MM-DD' PROMPT 'Enter Cancellation Date (YYYY-MM-DD): '
+
+CLEAR COLUMNS
+
+SET PAGESIZE 30
+SET LINESIZE 120
+SET FEEDBACK OFF
+
+COLUMN passenger_name FORMAT A30 HEADING 'Passenger Name'
+COLUMN ticket_id FORMAT A10 HEADING 'Ticket ID'
+COLUMN cancellation_date FORMAT A20 HEADING 'Cancellation Date'
+COLUMN cancellation_reason FORMAT A30 HEADING 'Cancellation Reason'
+COLUMN refund_amount FORMAT $99999.99 HEADING 'Refund Amount'
+
+TTITLE CENTER 'Ticket Cancellation Details' SKIP 2 -
+LEFT 'Cancellation Date: ' cancellation_date
+
+SELECT P.passenger_name, C.ticket_id, C.cancellation_date, C.cancellation_reason, C.refund_amount
+FROM Passenger P
+JOIN Ticket T ON P.passenger_id = T.passenger_id
+JOIN Cancellation C ON T.ticket_id = C.ticket_id
+WHERE C.cancellation_date = TO_DATE('&cancellation_date', 'YYYY-MM-DD');

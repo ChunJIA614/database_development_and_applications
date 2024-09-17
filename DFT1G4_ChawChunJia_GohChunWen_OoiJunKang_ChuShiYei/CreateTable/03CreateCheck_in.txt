@@ -1,0 +1,8 @@
+CREATE TABLE Check_in (
+    checkin_id VARCHAR(10),
+    passenger_id VARCHAR(10) NOT NULL,
+    checkin_date DATE,
+    checkin_status VARCHAR(30),
+    PRIMARY KEY (checkin_id),
+    FOREIGN KEY (passenger_id) REFERENCES Passenger (passenger_id)
+);
